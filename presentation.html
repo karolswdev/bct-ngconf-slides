@@ -1,0 +1,351 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>ng-conf 2019 learnings - Terumo BCT</title>
+
+		<meta name="description" content="Captures the learnings taken from ng-conf 2019">
+		<meta name="author" content="Karol Czajkowski">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+		<link rel="stylesheet" href="css/karol.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+	
+	<div class="reveal">
+	
+		<div class="slides">
+		
+			<!-- head slide -->
+			<section>
+					<h1>ng-conf 2019</h1>
+					<h3>Lessons for Terumo BCT</h3>
+					<p>
+						<small><a href="http://github.com/karolswdev/">Karol Czajkowski</a>, Software Developer</small>
+					</p>
+			</section>
+			<!-- about me slide -->
+			<section>
+					
+					<section>
+					<h3>About me</h3>
+					<ul class="nobullet" style="font-size: 0.6em;">
+						<li class="fragment nobullet">Polish <img src="assets/poland.png" style="width: 36px; height: 30px; background-color: #222; box-shadow: none !important; border: 0px; display: inline-block;"></li>
+						<li class="fragment nobullet m-t-10">Coding since <em>Amiga 500</em>
+							<ul class="fragment nobullet">
+								<li>M68000 ASM</li>
+								<li>C</li>
+								<li>PHP</li>
+								<li>eScript</li>
+								<li>C#</li>
+							</ul>
+						</li>
+						<li class="fragment nobullet m-t-10">Love skiing <span class="fragment">(Copper Mountain)</span></li>
+						<li class="fragment nobullet">Love racing <span class="fragment">(Go-Karts, sim racing)</span></li>
+					</ul>
+						<aside class="notes">
+							Before we talk about the things I learned at the conference, I want to tell you a little bit about myself. *click* I am Polish, and I lived in Poland until I was 21. My first experience with programming
+							was when I got my first Amiga 500 as a child. Show of hands - who here has ever heard of Commodore Amiga? *click* The technologies I started with are pretty odd, I started with ASM for the Amiga, as I
+							had nothing else on hand back then. I then moved onto C, PHP (yes, shame on me), eScript, which I used to create servers for Ultima Online and then finally after all these years I moved to C# when it just came out.
+							
+						</aside>
+					</section>
+					
+					<section>
+					<h3>Terumo BCT</h3>
+							<ul class="fragment nobullet">
+								<li>TOMEs team (2013-2017) - Belgium</li>
+								<li>CoCo team (2017-2018) - Lakewood</li>
+								<li>TOMEs Next Gen (2018-...) - Lakewood</li>
+							</ul>
+					</section>
+					
+
+
+			</section>
+			<!-- agenda -->
+			<section>
+					<h2>Agenda</h2>
+					<ul>
+						<li class="fragment">ng-conf</li>
+						<li class="fragment">Angular 8</li>
+						<li class="fragment">Angular tips and tricks</li>
+						<li class="fragment">NgRX - cross-component communication</li>
+						<li class="fragment">NestJS - Angular's best friend</li>
+					</ul>
+			</section>
+			<!-- ng-conf 2019 -->
+			<section>
+					<section>
+						<h2>ng-conf 2019</h2>
+					</section>
+					<section>
+						<ul>
+							<li class="fragment">Hosted in Salt Lake City, Utah</li>
+							<li class="fragment">3 full days</li>
+							<li class="fragment"><strong>75</strong> speakers
+								<ul>
+									<li class="fragment"><strong>Google</strong> Angular Dev Team</li>
+									<li class="fragment">Angular community leaders</li>
+									<li class="fragment">Developers of brilliant libraries
+										<ul>
+											<li><a href="https://ionicframework.com/">Ionic</a></li>
+											<li><a href="https://nestjs.com/">NestJS</a></li>
+											<li><a href="https://ngrx.io/">NgRX</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						
+					<aside class="notes">
+						The conference was hosted in Hotel Grand America, the most luxurious Salt Lake City Hotel. It offered multiple banquet rooms and provided enough room for the many hundreds of people who attended the conference.
+						A total of 75 speakers presented over the full three days, with multiple rooms and breakout session spaces to choose from.
+						Google had a very strong presence and reiterated their unending support of the entire ecosystem without making a breaking change like from angularjs to Angular 2.
+						
+						I think it was a fantastic conference and I would recommend it to anybody intersted in Angular.
+					</aside>
+							
+					</section>
+							
+			</section>
+			<!-- angular 8 -->
+			<section>
+					<section>
+						<h2>Angular 8</h2>
+						<small>A.K.A a lot of good things coming to Angular!</small>
+					</section>
+					<section>
+						<h2>Basics</h2>
+						<ul>
+							<li class="fragment">In RC already! <a href="http://update.angular.io">http://update.angular.io</a></li>
+							<li class="fragment">Documentation available at <a href="http://next.angular.io">http://next.angular.io</a></li>
+							<li class="fragment">Upgrading from 7 should take less than 30 minutes</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Features</h2>
+						<h4 class="fragment">Polyfill</h4>
+						<ul>
+							<li class="fragment">
+								<span class="fragment"><em>Minimal</em></span><span class="fragment"> - saves 7-20% space</span>
+							</li>
+							<li class="fragment" style="list-style-type:none;">
+								<img src="https://www.washington.edu/research/wp/wp-content/uploads/2018/04/Chrome-Logo.png" style="width: 109px; height: 89px; border: 0; background-color: #222; box-shadow: none !important;"/>
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Firefox_Logo%2C_2017.svg/1200px-Firefox_Logo%2C_2017.svg.png" style="width: 89px; height: 89px; border: 0; background-color: #222; box-shadow: none !important;"/>
+								<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Chromium_logo.png" style="width: 89px; height: 89px; border: 0; background-color: #222; box-shadow: none !important;"/>
+							</li>
+							<li class="fragment">
+								<span class="fragment"><em>Maximum</em></span><span class="fragment"> - from previous version</span>
+							</li>
+							<li class="fragment" style="list-style-type:none;">
+								<img src="https://vignette.wikia.nocookie.net/logopedia/images/7/73/Internet_Explorer_4_%26_5.png/revision/latest?cb=20180310144223" style="width: 89px; height: 89px; border: 0; background-color: #222; box-shadow: none !important;" class="fragment"/>
+								<img src="https://cdn.freebiesupply.com/logos/large/2x/microsoft-edge-logo-png-transparent.png" style="width: 89x; height: 89px; border: 0; background-color: #222; box-shadow: none !important;" class="fragment"/>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Features</h2>
+						<h4>Ivy Renderer</h4>
+						<p><img src="https://cdn-images-1.medium.com/max/1600/1*wl1I1WxI70Zoc3Hs9G101g.jpeg" style="height: 80%; width: 80%;"></p>
+						<br>
+					</section>
+					<section>
+						<h4>Ivy Renderer</h4>
+						<ul class="fragment">
+							<li class="fragment">Reduced compile speed</li>
+							<li class="fragment">Faster apps</li>
+							<li class="fragment">Improved type checking</li>
+							<li class="fragment">Ability to debug (DOM breakpoints)</li>
+							<li class="fragment">Smaller footprint
+							<ul>
+								<li>30% browser memory down</li>
+								<li>91% memory down on e2e tests</li>
+							</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h4 class="fragment">Start using Ivy</h4>
+						<br />
+						<pre class="fragment"><code class="hljs bash" style="word-wrap: break-word;">awesome-guy@angular:~$ ng new amazing-app --enable-ivy</code></pre>
+						<img src="https://media2.giphy.com/media/zcCGBRQshGdt6/giphy.gif?cid=790b76115cd342b12f77594a320ca7c9&rid=giphy.gif" class="fragment"/>
+						<ul class="fragment">
+							<li>Will be the default rendering engine in Angular 9</li>
+							<li><a href="http://next.angular.io/guide/ivy">Porting to Ivy</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Features</h2>
+						<h4>Bazel</h4>
+						<p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Bazel_logo.svg/512px-Bazel_logo.svg.png" style="height: 40%; width: 40%;"></p>
+						<br>
+					</section>
+					<section>
+						<h4>Bazel</h4>
+						<ul class="fragment">
+							<li class="fragment">Incremental build and test</li>
+							<li class="fragment">Cloud building</li>
+							<li class="fragment">Default compiler at Google</li>
+							<li class="fragment">Faster compile time</li>
+							<ul class="fragment">
+								<li>Google's CI build down from 60 minutes to 7.5</li>
+							</ul>
+							</li>
+						<ul>
+					</section>
+					<section>
+						<h4 class="fragment">Start using Bazel</h4>
+						<br />
+						<span class="fragment">Bazel ships as the default compiler in Angular 8</span>
+						<br />
+						<span class="fragment">Just upgrade!</span>
+					</section>
+				</section>
+			<!-- ng rx -->
+				<section>
+					<section>
+						<h2>NgRx</h2>
+						<small>Redux for Angular</small>
+					</section>
+					<section>
+						<h4>Redux pattern</h4>
+						<ul>
+							<li class="fragment">History
+							<ul>
+								<li class="fragment">Developed by Facebook</li>
+								<li class="fragment">Originally called Flux</li>
+								<li class="fragment">Adapted by <a href="https://twitter.com/dan_abramov?lang=en">Dan Abramov</a> for React</li>
+								<li class="fragment">Ported to Angular by <a href="https://ngrx.io/about?group=Core">NgRx team</a></li>
+							</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h5>Fundamentals</h5>
+						<ul>
+							<li class="fragment">Single source of truth</li>
+							<li class="fragment">State is immutable (read-only)</li>
+							<li class="fragment">Reducers react to actions and produce new state</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h5>Single source of truth</h5>
+						<ul>
+							<li class="fragment">Called <strong>Store</strong></li>
+							<li class="fragment">Contains <strong>state</strong></li>
+						</ul>
+						<div style="display: block;" class="fragment">						
+							<pre><code class="json hljs">{
+"loggedInUser": "Karol",
+"todoCount": 0
+}</code></pre>
+						</div>
+					</section>
+					
+					<section>
+						<h5>State is immutable</h5>
+						<ul>
+							<li class="fragment">No element can modify the state</li>
+							<li class="fragment">State is "enriched" by creating a copy of it</li>
+						</ul>
+					</section>
+					
+				<section>
+						<h5>Reducers react to actions and produce new state</h5>
+						
+<div style="display: block;" class="fragment">						
+<pre><code class="typescript hljs">
+export function reducer(state, action) {
+   switch(action.type) {
+      case ActionTypes.SetAuth:
+		return {...state, loggedInUser: action.payload};
+	default:
+		return state;
+	}
+}
+</code></pre></div>
+				</section>
+				<section>
+					<h5>The flow</h5>
+					<img src="assets/ngrx.gif" style="background-color: #FFFFFF;"/>
+				</section>
+				
+				<section>
+					<h5>!?</h5>
+					<img src="assets/confused.gif" />
+				</section>
+				
+				<section>
+					<h5>Let's create an app with NgRx!</h5>
+					<img src="assets/excited.gif" />
+				</section>
+				
+			
+			
+			
+			
+		</div>
+	
+	</div>
+	
+		<div class="presentation-overlay">
+			<span>Terumo BCT</span> <span>Lunch & Learn</span>
+		</div>
+	
+	<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	
+	</body>
+	
+</html>
