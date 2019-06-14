@@ -56,8 +56,8 @@
 					<section>
 					<h3>About me</h3>
 					<ul class="nobullet" style="font-size: 0.6em;">
-						<li class="fragment nobullet">Polish <img src="assets/poland.png" style="width: 36px; height: 30px; background-color: #222; box-shadow: none !important; border: 0px; display: inline-block;"></li>
-						<li class="fragment nobullet m-t-10">Coding since <em>Amiga 500</em>
+						<li class="fragment nobullet">Polish 🇵🇱</li>
+						<li class="fragment nobullet m-t-10">Coding since <em>Amiga 500️</em>🖥
 							<ul class="fragment nobullet">
 								<li>M68000 ASM</li>
 								<li>C</li>
@@ -66,8 +66,8 @@
 								<li>C#</li>
 							</ul>
 						</li>
-						<li class="fragment nobullet m-t-10">Love skiing <span class="fragment">(Copper Mountain)</span></li>
-						<li class="fragment nobullet">Love racing <span class="fragment">(Go-Karts, sim racing)</span></li>
+						<li class="fragment nobullet m-t-10">Love ❄️<span class="fragment">(Copper Mountain)</span></li>
+						<li class="fragment nobullet">Love 🏎️<span class="fragment">(Go-Karts, sim racing)</span></li>
 					</ul>
 						<aside class="notes">
 							Before we talk about the things I learned at the conference, I want to tell you a little bit about myself. *click* I am Polish, and I lived in Poland until I was 21. My first experience with programming
@@ -95,8 +95,10 @@
 					<ul>
 						<li class="fragment">ng-conf</li>
 						<li class="fragment">Angular 8</li>
-						<li class="fragment">Angular tips and tricks</li>
-						<li class="fragment">NgRX - cross-component communication</li>
+						<li class="fragment">NgRX
+							<ul><li>cross-component Redux communication</li></ul>
+						</li>
+						<!-- MAYBE -->
 						<li class="fragment">NestJS - Angular's best friend</li>
 					</ul>
 			</section>
@@ -107,9 +109,9 @@
 					</section>
 					<section>
 						<ul>
-							<li class="fragment">Hosted in Salt Lake City, Utah</li>
-							<li class="fragment">3 full days</li>
-							<li class="fragment"><strong>75</strong> speakers
+							<li class="fragment">Hosted in Salt Lake City, Utah 👌</li>
+							<li class="fragment">3 full days 👏</li>
+							<li class="fragment"><strong>75</strong> speakers 🤯
 								<ul>
 									<li class="fragment"><strong>Google</strong> Angular Dev Team</li>
 									<li class="fragment">Angular community leaders</li>
@@ -139,7 +141,7 @@
 			<section>
 					<section>
 						<h2>Angular 8</h2>
-						<small>A.K.A a lot of good things coming to Angular!</small>
+						<small>The best Angular yet! ♾️</small>
 					</section>
 					<section>
 						<h2>Basics</h2>
@@ -237,12 +239,12 @@
 					<section>
 						<h4>Redux pattern</h4>
 						<ul>
-							<li class="fragment">History
+							<li class="fragment">History 📚
 							<ul>
 								<li class="fragment">Developed by Facebook</li>
 								<li class="fragment">Originally called Flux</li>
 								<li class="fragment">Adapted by <a href="https://twitter.com/dan_abramov?lang=en">Dan Abramov</a> for React</li>
-								<li class="fragment">Ported to Angular by <a href="https://ngrx.io/about?group=Core">NgRx team</a></li>
+								<li class="fragment">Ported to Angular by <a href="https://ngrx.io/about?group=Core">NgRx team</a> 🤗</li>
 							</ul>
 							</li>
 						</ul>
@@ -306,6 +308,39 @@ export function reducer(state, action) {
 				<section>
 					<h5>Let's create an app with NgRx!</h5>
 					<img src="assets/excited.gif" />
+				</section>
+				
+				<section>
+					<h3><strong>NGRX-TODO</strong></h3>
+					<ul>
+						<li class="fragment">Angular 8! 💚</li>
+						<li class="fragment">Log in user</li>
+						<li class="fragment">Create TODO</li>
+						<li class="fragment">Set TODO to done</li>
+						<li class="fragment">Set TODO to undone</li>
+						<li class="fragment">Delete TODO</li>
+						<li class="fragment">Filter TODO
+							<ul class="fragment">
+								<li>Show <em>all</em></li>
+								<li>Show <em>active</em></li>
+								<li>Show <em>done</em></li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h3>
+						✨<strong>FIRST STEPS</strong>✨
+					</h3>
+					
+					<pre class="fragment"><code class="bash hljs">root@ang:~$ ng new todo</code></pre>
+					<pre class="fragment"><code class="bash hljs">root@ang:~$ cd todo</code></pre>
+					<pre class="fragment"><code class="bash hljs">root@ang:~$ ng add @ngrx/store</code></pre>
+					<pre class="fragment"><code class="bash hljs">root@ang:~$ ng add @ngrx/effects</code></pre>
+					<pre class="fragment"><code class="bash hljs">root@ang:~$ ng add @ngrx/entity</code></pre>
+					<pre class="fragment"><code class="bash hljs">root@ang:~$ ng add @ngrx/store-devtools</code></pre>
+					
 				</section>
 				
 			
