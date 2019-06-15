@@ -66,14 +66,13 @@
 								<li>C#</li>
 							</ul>
 						</li>
-						<li class="fragment nobullet m-t-10">Love ❄️<span class="fragment">(Copper Mountain)</span></li>
-						<li class="fragment nobullet">Love 🏎️<span class="fragment">(Go-Karts, sim racing)</span></li>
+						<li class="fragment nobullet m-t-10">Love ❄️</li>
+						<li class="fragment nobullet">Love 🏎️</li>
 					</ul>
 						<aside class="notes">
 							Before we talk about the things I learned at the conference, I want to tell you a little bit about myself. *click* I am Polish, and I lived in Poland until I was 21. My first experience with programming
 							was when I got my first Amiga 500 as a child. Show of hands - who here has ever heard of Commodore Amiga? *click* The technologies I started with are pretty odd, I started with ASM for the Amiga, as I
 							had nothing else on hand back then. I then moved onto C, PHP (yes, shame on me), eScript, which I used to create servers for Ultima Online and then finally after all these years I moved to C# when it just came out.
-							
 						</aside>
 					</section>
 					
@@ -86,8 +85,6 @@
 							</ul>
 					</section>
 					
-
-
 			</section>
 			<!-- agenda -->
 			<section>
@@ -196,7 +193,7 @@
 					<section>
 						<h4 class="fragment">Start using Ivy</h4>
 						<br />
-						<pre class="fragment"><code class="hljs bash" style="word-wrap: break-word;">awesome-guy@angular:~$ ng new amazing-app --enable-ivy</code></pre>
+						<pre class="fragment"><code class="hljs bash" style="word-wrap: break-word;">angular@angular:~$ ng new amazing-app --enable-ivy</code></pre>
 						<img src="https://media2.giphy.com/media/zcCGBRQshGdt6/giphy.gif?cid=790b76115cd342b12f77594a320ca7c9&rid=giphy.gif" class="fragment"/>
 						<ul class="fragment">
 							<li>Will be the default rendering engine in Angular 9</li>
@@ -237,6 +234,25 @@
 						<small>Redux for Angular</small>
 					</section>
 					<section>
+							<h4>Redux pattern</h4>
+							<ul>
+								<li class="fragment">Advantages 🤘
+								<ul>
+									<li class="fragment">Seamless cross-component communication</li>
+									<li class="fragment">Clean code</li>
+									<li class="fragment">aaaaaaaaaaand most importantly</li>
+								</ul>
+								</li>
+							</ul>
+					</section>
+					<section>
+						<h3>TIMETRAVEL DEBUGGING</h3>
+
+						<img src="assets/timetravel2.gif" />
+
+
+					</section>
+					<section>
 						<h4>Redux pattern</h4>
 						<ul>
 							<li class="fragment">History 📚
@@ -261,28 +277,49 @@
 					<section>
 						<h5>Single source of truth</h5>
 						<ul>
-							<li class="fragment">Called <strong>Store</strong></li>
+							<li class="fragment">NgRx calls it <strong>Store</strong></li>
 							<li class="fragment">Contains <strong>state</strong></li>
 						</ul>
 						<div style="display: block;" class="fragment">						
 							<pre><code class="json hljs">{
-"loggedInUser": "Karol",
-"todoCount": 0
+"loggedInUser": "Karol 👨‍💻",
+"mouseClicks": 0,
+"todos": [
+	{ id: 1, text: "Do laundry 😔", completed: false},
+	{ id: 2, text: "Pet cat 😻", completed: true}
+	 ]
 }</code></pre>
+						</div>
+					</section>		
+					<section>
+						<h5>State is immutable</h5>
+						<ul>
+							<li class="fragment">No element can modify the state 🛑</li>
+							<li class="fragment">State is "modified" by creating a modified copy</li>
+						</ul>
+					</section>
+
+					<section>
+
+					</section>
+
+					<section>
+						<h5>Actions represent desire to change state</h5>
+
+						<div style="display: block;" class="fragment">
+<pre><code class="typescript">
+export class LoginUser implements Action {
+	readonly type = UserActions.Login,
+	constructor(private user: { loggedInuser: string }) {}
+}
+</code></pre>
+						
 						</div>
 					</section>
 					
 					<section>
-						<h5>State is immutable</h5>
-						<ul>
-							<li class="fragment">No element can modify the state</li>
-							<li class="fragment">State is "enriched" by creating a copy of it</li>
-						</ul>
-					</section>
-					
-				<section>
 						<h5>Reducers react to actions and produce new state</h5>
-						
+
 <div style="display: block;" class="fragment">						
 <pre><code class="typescript hljs">
 export function reducer(state, action) {
@@ -314,7 +351,8 @@ export function reducer(state, action) {
 					<h3><strong>NGRX-TODO</strong></h3>
 					<ul>
 						<li class="fragment">Angular 8! 💚</li>
-						<li class="fragment">Log in user</li>
+						<li class="fragment">Create user</li>
+						<li class="fragment">Track mouse-clicks</li>
 						<li class="fragment">Create TODO</li>
 						<li class="fragment">Set TODO to done</li>
 						<li class="fragment">Set TODO to undone</li>
@@ -343,10 +381,111 @@ export function reducer(state, action) {
 					
 				</section>
 				
-			
-			
-			
-			
+				<section>
+					<h3>Models</h3>
+						<pre class="fragment"><code class="ts hljs">export interface Todo {
+	id: number;
+	completed: boolean;
+	text: string;
+}</code></pre>		
+				</section>
+
+				<section>
+					<h3>State</h3>
+
+<pre class="fragment"><code class="ts hljs">{
+	entities: todo[],
+	currentFilter: string,
+	currentUser: string,
+	mouseClicks: number
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Actions - Log in user</h3>
+
+					<pre class="fragment"><code class="ts hljs">
+import { Action } from '@ngrx/store';
+
+export enum UserActionTypes {
+    CreateUser = '[USER] Create user',
+    DeleteUser = '[USER] Delete user'
+}
+
+export class CreateUser implements Action {
+    readonly type = UserActionTypes.CreateUser;
+    constructor(public payload: { user: string }) {}
+}
+
+export class DeleteUser implements Action {
+    readonly type = UserActionTypes.DeleteUser;
+}
+
+export type UserActions =
+ CreateUser | DeleteUser;
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Actions - Mouse click</h3>
+					<pre class="fragment"><code class="ts hljs">
+import { Action } from '@ngrx/store';
+
+export enum MouseClickActions {
+	MouseClicked = '[Mouse] Click',
+	MouseReset = '[Mouse] Reset'
+}
+
+export class ClickMouse implements Action {
+	readonly type = MouseClickActions.MouseClicked;
+}
+
+export class MouseReset implements Action {
+	readonly type = MouseClickActions.MouseReset;
+}
+
+export type MouseActions =
+	ClickMouse | MouseReset;</code></pre>
+				</section>
+				<section>
+					<h3>Actions - TODO Actions</h3>
+<pre><code class="typescript">
+export enum TodoActionTypes {
+	LoadTodos = '[Todo] Load Todos',
+	AddTodo = '[Todo] Add Todo',
+	UpdateTodo = '[Todo] Update Todo',
+	DeleteTodo = '[Todo] Delete Todo'
+}
+</code></pre>
+
+<pre><code class="typescript">
+export class LoadTodos implements Action {
+	readonly type = TodoActionTypes.LoadTodos; 
+	constructor(public payload: { todos: Todo[] }) {}
+}
+// All other actions such as Create follow the same pattern
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Actions - Set filter</h3>
+<pre class="fragment"><code class="typescript">
+import { Action } from '@ngrx/store';
+
+export enum CurrentFilterActionTypes {
+	SetCurrentFilter = '[Filter] Set current filter'
+}
+
+export class SetCurrentFilter implements Action {
+
+	readonl																																																																																						y type = CurrentFilterActionTypes.SetCurrentFilter;
+
+	constructor(public payload: { filter: string }) {}
+}
+
+export type CurrentFilterActions = SetCurrentFilter;
+</code></pre>
+				</section>
 		</div>
 	
 	</div>
