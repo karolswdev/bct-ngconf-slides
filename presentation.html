@@ -66,8 +66,8 @@
 								<li>C#</li>
 							</ul>
 						</li>
-						<li class="fragment nobullet m-t-10">Love ❄️</li>
-						<li class="fragment nobullet">Love 🏎️</li>
+						<li class="fragment nobullet m-t-10">❄️</li>
+						<li class="fragment nobullet">🏎️</li>
 					</ul>
 						<aside class="notes">
 							Before we talk about the things I learned at the conference, I want to tell you a little bit about myself. *click* I am Polish, and I lived in Poland until I was 21. My first experience with programming
@@ -81,7 +81,7 @@
 							<ul class="fragment nobullet">
 								<li>TOMEs team (2013-2017) - Belgium</li>
 								<li>CoCo team (2017-2018) - Lakewood</li>
-								<li>TOMEs Next Gen (2018-...) - Lakewood</li>
+								<li>Team 42 (2018-...) - Lakewood</li>
 							</ul>
 					</section>
 					
@@ -96,7 +96,8 @@
 							<ul><li>cross-component Redux communication</li></ul>
 						</li>
 						<!-- MAYBE -->
-						<li class="fragment">NestJS - Angular's best friend</li>
+						<!-- nope, no time. -->
+						<!-- <li class="fragment">NestJS - Angular's best friend</li> -->
 					</ul>
 			</section>
 			<!-- ng-conf 2019 -->
@@ -406,7 +407,7 @@ export function reducer(state, action) {
 					<h3>State</h3>
 
 <pre class="fragment"><code class="ts hljs">{
-	entities: todo[],
+	todos: todo[],
 	currentFilter: string,
 	currentUser: string,
 	mouseClicks: number
@@ -584,11 +585,10 @@ export const reducers: ActionReducerMap&lt;TodoState&gt; = {
 			<section>
 				<h3>Set up modules to use store</h3>
 
-<pre class="fragment"><code class="typescript hljs">
-imports: [
-	StoreModule.forRoot(reducers),
-	!environment.production ? StoreDevtoolsModule.instrument() : [],
-	]
+<pre class="fragment"><code class="typescript hljs">imports: [
+  StoreModule.forRoot(reducers),
+  !environment.production ? StoreDevtoolsModule.instrument() : [],
+  ]
 </code></pre>
 
 			<aside class="notes">
@@ -618,11 +618,15 @@ imports: [
 			</section>
 
 			<section>
-				<h5>Slides available <a href="https://github.com/karolswdev/bct-ngconf-slides">here</a></h5>
-				<h5>https://github.com/karolswdev/bct-ngconf-slides</h5>
+				<h5>Slides</h5>
+				<br />
+				https://github.com/karolswdev/bct-ngconf-slides
+				<br />
+				<br />
 
-				<h5>App available here <a href="https://github.com/karolswdev/bct-ngrx-demo-repo">here</a></h5>
-				<h5>https://github.com/karolswdev/bct-ngrx-demo-repo</h5>
+				<h5>App</h5>
+				<br />
+				https://github.com/karolswdev/bct-ngrx-demo-repo
 			</section>
 
 			<section>
