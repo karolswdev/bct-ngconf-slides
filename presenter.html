@@ -1,0 +1,671 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>ng-conf 2019 learnings - Terumo BCT</title>
+
+		<meta name="description" content="Captures the learnings taken from ng-conf 2019">
+		<meta name="author" content="Karol Czajkowski">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/blood.css" id="theme">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+		<link rel="stylesheet" href="css/karol.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+	
+	<div class="reveal">
+	
+		<div class="slides">
+		
+			<!-- head slide -->
+			<section>
+					<h1>ng-conf 2019</h1>
+					<h3>Lessons for Terumo BCT</h3>
+					<p>
+						<small><a href="http://github.com/karolswdev/">Karol Czajkowski</a>, Software Developer</small>
+					</p>
+			</section>
+			<!-- about me slide -->
+			<section>
+					
+					<section>
+					<h3>About me</h3>
+					<ul class="nobullet" style="font-size: 0.6em;">
+						<li class="nobullet">Polish 🇵🇱</li>
+						<li class="nobullet m-t-10">Coding since <em>Amiga 500️</em>🖥
+							<ul class="nobullet">
+								<li>M68000 ASM</li>
+								<li>C</li>
+								<li>PHP</li>
+								<li>eScript</li>
+								<li>C#</li>
+							</ul>
+						</li>
+						<li class="nobullet m-t-10">❄️</li>
+						<li class="nobullet">🏎️</li>
+					</ul>
+						<aside class="notes">
+							Before we talk about the things I learned at the conference, I want to tell you a little bit about myself. *click* I am Polish, and I lived in Poland until I was 21. My first experience with programming
+							was when I got my first Amiga 500 as a child. Show of hands - who here has ever heard of Commodore Amiga? *click* The technologies I started with are pretty odd, I started with ASM for the Amiga, as I
+							had nothing else on hand back then. I then moved onto C, PHP (yes, shame on me), eScript, which I used to create servers for Ultima Online and then finally after all these years I moved to C# when it just came out.
+						</aside>
+					</section>
+					
+					<section>
+					<h3>Terumo BCT</h3>
+							<ul class="fragment nobullet">
+								<li>TOMEs team (2013-2017) - Belgium</li>
+								<li>CoCo team (2017-2018) - Lakewood</li>
+								<li>Team 42 (2018-...) - Lakewood</li>
+							</ul>
+					</section>
+					
+			</section>
+			<!-- agenda -->
+			<section>
+					<h2>Agenda</h2>
+					<ul>
+						<li >ng-conf</li>
+						<li >Angular 8</li>
+						<li >NgRX
+							<ul><li>cross-component Redux communication</li></ul>
+						</li>
+						<!-- MAYBE -->
+						<!-- nope, no time. -->
+						<!-- <li >NestJS - Angular's best friend</li> -->
+					</ul>
+			</section>
+			<!-- ng-conf 2019 -->
+			<section>
+					<section>
+						<h2>ng-conf 2019</h2>
+					</section>
+					<section>
+						<ul>
+							<li >Hosted in Salt Lake City, Utah 👌</li>
+							<li >3 full days 👏</li>
+							<li ><strong>75</strong> speakers 🤯
+								<ul>
+									<li ><strong>Google</strong> Angular Dev Team</li>
+									<li >Angular community leaders</li>
+									<li >Developers of brilliant libraries
+										<ul>
+											<li><a href="https://ionicframework.com/">Ionic</a></li>
+											<li><a href="https://nestjs.com/">NestJS</a></li>
+											<li><a href="https://ngrx.io/">NgRX</a></li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+						</ul>
+						
+					<aside class="notes">
+						The conference was hosted in Hotel Grand America, the most luxurious Salt Lake City Hotel. It offered multiple banquet rooms and provided enough room for the many hundreds of people who attended the conference.
+						A total of 75 speakers presented over the full three days, with multiple rooms and breakout session spaces to choose from.
+						Google had a very strong presence and reiterated their unending support of the entire ecosystem without making a breaking change like from angularjs to Angular 2.
+						
+						I think it was a fantastic conference and I would recommend it to anybody intersted in Angular.
+					</aside>
+							
+					</section>
+
+					<section>
+						<img src="assets/ngconfg2.jpg" />
+					</section>
+
+					<section>
+						<img src="assets/ngconfg1.jpg" />
+					</section>
+
+					<section>
+						<img src="assets/ngconfg3.jpg" />
+					</section>
+							
+			</section>
+			<!-- angular 8 -->
+			<section>
+					<section>
+						<h2>Angular 8</h2>
+						<small>The best Angular yet! ♾️</small>
+					</section>
+					<section>
+						<h2>Basics</h2>
+						<ul>
+							<li >In RC already! <a href="http://update.angular.io">http://update.angular.io</a></li>
+							<li >Documentation available at <a href="http://next.angular.io">http://next.angular.io</a></li>
+							<li >Upgrading from 7 should take less than 30 minutes</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Features</h2>
+						<h4 >Polyfill</h4>
+						<ul>
+							<li >
+								<span ><em>Minimal</em></span><span > - saves 7-20% space</span>
+							</li>
+							<li  style="list-style-type:none;">
+								<img src="https://www.washington.edu/research/wp/wp-content/uploads/2018/04/Chrome-Logo.png" style="width: 109px; height: 89px; border: 0; background-color: #222; box-shadow: none !important;"/>
+								<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Firefox_Logo%2C_2017.svg/1200px-Firefox_Logo%2C_2017.svg.png" style="width: 89px; height: 89px; border: 0; background-color: #222; box-shadow: none !important;"/>
+								<img src="https://upload.wikimedia.org/wikipedia/commons/2/26/Chromium_logo.png" style="width: 89px; height: 89px; border: 0; background-color: #222; box-shadow: none !important;"/>
+							</li>
+							<li >
+								<span ><em>Maximum</em></span><span > - from previous version</span>
+							</li>
+							<li  style="list-style-type:none;">
+								<img src="https://vignette.wikia.nocookie.net/logopedia/images/7/73/Internet_Explorer_4_%26_5.png/revision/latest?cb=20180310144223" style="width: 89px; height: 89px; border: 0; background-color: #222; box-shadow: none !important;" />
+								<img src="https://cdn.freebiesupply.com/logos/large/2x/microsoft-edge-logo-png-transparent.png" style="width: 89x; height: 89px; border: 0; background-color: #222; box-shadow: none !important;" />
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Features</h2>
+						<h4>Ivy Renderer</h4>
+						<p><img src="https://cdn-images-1.medium.com/max/1600/1*wl1I1WxI70Zoc3Hs9G101g.jpeg" style="height: 80%; width: 80%;"></p>
+						<br>
+					</section>
+					<section>
+						<h4>Ivy Renderer</h4>
+						<ul >
+							<li >Reduced compile speed</li>
+							<li >Faster apps</li>
+							<li >Improved type checking</li>
+							<li >Ability to debug (DOM breakpoints)</li>
+							<li >Smaller footprint
+							<ul>
+								<li>30% browser memory down</li>
+								<li>91% memory down on e2e tests</li>
+							</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h4 >Start using Ivy</h4>
+						<br />
+						<pre ><code class="hljs bash" style="word-wrap: break-word;">angular@angular:~$ ng new amazing-app --enable-ivy</code></pre>
+						<img src="https://media2.giphy.com/media/zcCGBRQshGdt6/giphy.gif?cid=790b76115cd342b12f77594a320ca7c9&rid=giphy.gif" />
+						<ul >
+							<li>Will be the default rendering engine in Angular 9</li>
+							<li><a href="http://next.angular.io/guide/ivy">Porting to Ivy</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Features</h2>
+						<h4>Bazel</h4>
+						<p><img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/7d/Bazel_logo.svg/512px-Bazel_logo.svg.png" style="height: 40%; width: 40%;"></p>
+						<br>
+					</section>
+					<section>
+						<h4>Bazel</h4>
+						<ul >
+							<li >Incremental build and test</li>
+							<li >Cloud building</li>
+							<li >Default compiler at Google</li>
+							<li >Faster compile time</li>
+							<ul >
+								<li>Google's CI build down from 60 minutes to 7.5</li>
+							</ul>
+							</li>
+						<ul>
+					</section>
+					<section>
+						<h4 >Start using Bazel</h4>
+						<br />
+						<span >Bazel ships as the default compiler in Angular 8</span>
+						<br />
+						<span >Just upgrade!</span>
+					</section>
+				</section>
+			<!-- ng rx -->
+				<section>
+					<section>
+						<h2>NgRx</h2>
+						<small>Redux for Angular</small>
+					</section>
+					<section>
+							<h4>Redux pattern</h4>
+							<ul>
+								<li >Advantages 🤘
+								<ul>
+									<li >Seamless cross-component communication</li>
+									<li >Clean code</li>
+									<li >aaaaaaaaaaand most importantly</li>
+								</ul>
+								</li>
+							</ul>
+					</section>
+					<section>
+						<h3>TIMETRAVEL DEBUGGING</h3>
+
+						<img src="assets/timetravel2.gif" style="width: 100%;height: 100%;"/>
+
+
+					</section>
+					<section>
+						<h4>Redux pattern</h4>
+						<ul>
+							<li >History 📚
+							<ul>
+								<li >Developed by Facebook</li>
+								<li >Originally called Flux</li>
+								<li >Adapted by <a href="https://twitter.com/dan_abramov?lang=en">Dan Abramov</a> for React</li>
+								<li >Ported to Angular by <a href="https://ngrx.io/about?group=Core">NgRx team</a> 🤗</li>
+							</ul>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h5>Fundamentals</h5>
+						<ul>
+							<li >Single source of truth</li>
+							<li >State is immutable (read-only)</li>
+							<li >Reducers react to actions and produce new state</li>
+						</ul>
+					</section>
+					
+					<section>
+						<h5>Single source of truth</h5>
+						<ul>
+							<li >NgRx calls it <strong>Store</strong></li>
+							<li >Contains <strong>state</strong></li>
+						</ul>
+						<div style="display: block;" >						
+							<pre><code class="json hljs">{
+"loggedInUser": "Karol 👨‍💻",
+"mouseClicks": 0,
+"todos": [
+	{ id: 1, text: "Do laundry 😔", completed: false},
+	{ id: 2, text: "Pet cat 😻", completed: true}
+	 ]
+}</code></pre>
+						</div>
+					</section>		
+					<section>
+						<h5>State is immutable</h5>
+						<ul>
+							<li >No element can modify the state 🛑</li>
+							<li >State is "modified" by creating a modified copy</li>
+						</ul>
+					</section>
+
+					<section>
+
+					</section>
+
+					<section>
+						<h5>Actions represent desire to change state</h5>
+
+						<div style="display: block;" >
+<pre><code class="typescript">
+export class LoginUser implements Action {
+	readonly type = UserActions.Login,
+	constructor(private user: { loggedInuser: string }) {}
+}
+</code></pre>
+						
+						</div>
+					</section>
+					
+					<section>
+						<h5>Reducers react to actions and produce new state</h5>
+
+<div style="display: block;" >						
+<pre><code class="typescript hljs">
+export function reducer(state, action) {
+   switch(action.type) {
+      case ActionTypes.SetAuth:
+		return {...state, loggedInUser: action.payload};
+	default:
+		return state;
+	}
+}
+</code></pre></div>
+				</section>
+				<section>
+					<h5>The flow</h5>
+					<img src="assets/ngrx.gif" style="background-color: #FFFFFF;"/>
+				</section>
+				
+				<section>
+					<h5>!?</h5>
+					<img src="assets/confused.gif" />
+				</section>
+				
+				<section>
+					<h5>Let's create an app with NgRx!</h5>
+					<img src="assets/excited.gif" />
+				</section>
+				
+				<section>
+					<h3><strong>NGRX-TODO</strong></h3>
+					<ul>
+						<li >Angular 8! 💚</li>
+						<li >Create user</li>
+						<li >Track mouse-clicks</li>
+						<li >Create TODO</li>
+						<li >Set TODO to done</li>
+						<li >Set TODO to undone</li>
+						<li >Delete TODO</li>
+						<li >Filter TODO
+							<ul >
+								<li>Show <em>all</em></li>
+								<li>Show <em>active</em></li>
+								<li>Show <em>done</em></li>
+							</ul>
+						</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h3>
+						✨<strong>FIRST STEPS</strong>✨
+					</h3>
+					
+					<pre ><code class="bash hljs">root@ang:~$ ng new todo</code></pre>
+					<pre ><code class="bash hljs">root@ang:~$ cd todo</code></pre>
+					<pre ><code class="bash hljs">root@ang:~$ ng add @ngrx/store</code></pre>
+					<pre ><code class="bash hljs">root@ang:~$ ng add @ngrx/effects</code></pre>
+					<pre ><code class="bash hljs">root@ang:~$ ng add @ngrx/entity</code></pre>
+					<pre ><code class="bash hljs">root@ang:~$ ng add @ngrx/store-devtools</code></pre>
+					
+				</section>
+				
+				<section>
+					<h3>Models</h3>
+						<pre ><code class="ts hljs">export interface Todo {
+	id: number;
+	completed: boolean;
+	text: string;
+}</code></pre>		
+				</section>
+
+				<section>
+					<h3>State</h3>
+
+<pre ><code class="ts hljs">{
+	todos: todo[],
+	currentFilter: string,
+	currentUser: string,
+	mouseClicks: number
+}</code></pre>
+				</section>
+
+				<section>
+					<h3>Actions - Log in user</h3>
+
+					<pre ><code class="ts hljs">
+import { Action } from '@ngrx/store';
+
+export enum UserActionTypes {
+    CreateUser = '[USER] Create user',
+    DeleteUser = '[USER] Delete user'
+}
+
+export class CreateUser implements Action {
+    readonly type = UserActionTypes.CreateUser;
+    constructor(public payload: { user: string }) {}
+}
+
+export class DeleteUser implements Action {
+    readonly type = UserActionTypes.DeleteUser;
+}
+
+export type UserActions =
+ CreateUser | DeleteUser;
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Actions - Mouse click</h3>
+					<pre ><code class="ts hljs">
+import { Action } from '@ngrx/store';
+
+export enum MouseClickActions {
+	MouseClicked = '[Mouse] Click',
+	MouseReset = '[Mouse] Reset'
+}
+
+export class ClickMouse implements Action {
+	readonly type = MouseClickActions.MouseClicked;
+}
+
+export class MouseReset implements Action {
+	readonly type = MouseClickActions.MouseReset;
+}
+
+export type MouseActions =
+	ClickMouse | MouseReset;</code></pre>
+				</section>
+				<section>
+					<h3>Actions - TODO Actions</h3>
+<pre><code class="typescript">
+export enum TodoActionTypes {
+	LoadTodos = '[Todo] Load Todos',
+	AddTodo = '[Todo] Add Todo',
+	UpdateTodo = '[Todo] Update Todo',
+	DeleteTodo = '[Todo] Delete Todo'
+}
+</code></pre>
+
+<pre><code class="typescript">
+export class LoadTodos implements Action {
+	readonly type = TodoActionTypes.LoadTodos; 
+	constructor(public payload: { todos: Todo[] }) {}
+}
+// All other actions such as Create follow the same pattern
+</code></pre>
+				</section>
+
+				<section>
+					<h3>Actions - Set filter</h3>
+<pre ><code class="typescript">
+import { Action } from '@ngrx/store';
+
+export enum CurrentFilterActionTypes {
+	SetCurrentFilter = '[Filter] Set current filter'
+}
+
+export class SetCurrentFilter implements Action {
+
+	readonl	y type = CurrentFilterActionTypes.SetCurrentFilter;
+
+	constructor(public payload: { filter: string }) {}
+}
+
+export type CurrentFilterActions = SetCurrentFilter;
+</code></pre>
+				</section>
+				<section>
+					<h3>Reducers - Mouseclick</h3>
+
+<pre >
+	<code class="typescript">
+import { MouseActions, 
+	MouseClickActions } from './mouseclick.actions';
+
+const initialState = 0;
+
+export function reducer(state: number = initialState,
+			action: MouseActions) {
+	switch (action.type) {
+		case MouseClickActions.MouseClicked:
+			return state + 1;
+		default:
+			return state;
+	}
+}</code>
+</pre>
+
+			</section>
+			<section>
+						<h3>Reducers - User</h3>
+<pre><code class="typescript">
+import { UserActionTypes,
+	 UserActions } from './username.actions';
+
+const initialState = null;
+
+export function reducer(state: string = initialState, 
+		action: UserActions) {
+
+	switch (action.type) {
+		case UserActionTypes.CreateUser: {
+			return action.payload;
+		}
+		case UserActionTypes.DeleteUser: {
+			return initialState;
+		}
+		default: {
+			return state;
+		}
+	}
+}
+</code></pre>
+	
+			</section>
+			<section>
+				<h3>Reducers - ToDo</h3>
+					<ul>
+					<li>Entity adapters
+						<ul>
+							<li>
+								Designed by NgRx
+							</li>
+							<li>
+								Supports all CRUD operations
+							</li>
+							<li>
+								Out of the box and easy to use
+							</li>
+							<li>
+								<a href="https://ngrx.io/guide/entity/adapter" target="_blank">Read more</a>
+							</li>
+					</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Set up State/Reducer map</h3>
+
+<pre ><code class="typescript hljs">
+export const reducers: ActionReducerMap&lt;TodoState&gt; = {
+		todos: todos.reducer,
+		currentFilter: currentFilter,
+		currentUser: userReducer,
+		mouseClicks: mouseReducer
+};
+</code></pre>
+			</section>
+
+			<section>
+				<h3>Set up modules to use store</h3>
+
+<pre ><code class="typescript hljs">imports: [
+  StoreModule.forRoot(reducers),
+  !environment.production ? StoreDevtoolsModule.instrument() : [],
+  ]
+</code></pre>
+
+			<aside class="notes">
+				In our module's import definition we must point into our ActionReduerMap. An added bonus, as described here, is that we can timetravel debugging
+				when the environment is not set to production. A clever way to conditionally include imports depending on the selected environment!
+			</aside>
+
+			</section>
+
+
+			<section>
+				<h4>Demo time! 😇</h4>
+
+				<ul>
+					<li>How to subscribe to state changes</li>
+					<li>General layout of the application</li>
+					<li>Issuing actions</li>
+					<li>Cross-component communication</li>
+					<li>Time travel debugging</li>
+				</ul>
+			</section>
+
+			</section>
+
+			<section>
+				<h1>Q&A</h1>
+			</section>
+
+			<section>
+				<h5>Slides</h5>
+				<br />
+				https://github.com/karolswdev/bct-ngconf-slides
+				<br />
+				<br />
+
+				<h5>App</h5>
+				<br />
+				https://github.com/karolswdev/bct-ngrx-demo-repo
+			</section>
+
+			<section>
+				<h1>Thank you ❤</h1>
+			</section>
+
+		</div>
+	
+	</div>
+	
+		<div class="presentation-overlay">
+			<span>Terumo BCT</span> <span>Lunch & Learn</span>
+		</div>
+	
+	<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true },
+					{ src: 'plugin/search/search.js', async: true },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+		</script>
+	
+	</body>
+	
+</html>
