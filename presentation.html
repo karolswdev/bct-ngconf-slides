@@ -132,6 +132,18 @@
 					</aside>
 							
 					</section>
+
+					<section>
+						<img src="assets/ngconfg2.jpg" />
+					</section>
+
+					<section>
+						<img src="assets/ngconfg1.jpg" />
+					</section>
+
+					<section>
+						<img src="assets/ngconfg3.jpg" />
+					</section>
 							
 			</section>
 			<!-- angular 8 -->
@@ -248,7 +260,7 @@
 					<section>
 						<h3>TIMETRAVEL DEBUGGING</h3>
 
-						<img src="assets/timetravel2.gif" />
+						<img src="assets/timetravel2.gif" style="width: 100%;height: 100%;"/>
 
 
 					</section>
@@ -478,7 +490,7 @@ export enum CurrentFilterActionTypes {
 
 export class SetCurrentFilter implements Action {
 
-	readonl																																																																																						y type = CurrentFilterActionTypes.SetCurrentFilter;
+	readonl	y type = CurrentFilterActionTypes.SetCurrentFilter;
 
 	constructor(public payload: { filter: string }) {}
 }
@@ -486,6 +498,137 @@ export class SetCurrentFilter implements Action {
 export type CurrentFilterActions = SetCurrentFilter;
 </code></pre>
 				</section>
+				<section>
+					<h3>Reducers - Mouseclick</h3>
+
+<pre class="fragment">
+	<code class="typescript">
+import { MouseActions, 
+	MouseClickActions } from './mouseclick.actions';
+
+const initialState = 0;
+
+export function reducer(state: number = initialState,
+			action: MouseActions) {
+	switch (action.type) {
+		case MouseClickActions.MouseClicked:
+			return state + 1;
+		default:
+			return state;
+	}
+}</code>
+</pre>
+
+			</section>
+			<section>
+						<h3>Reducers - User</h3>
+<pre><code class="typescript">
+import { UserActionTypes,
+	 UserActions } from './username.actions';
+
+const initialState = null;
+
+export function reducer(state: string = initialState, 
+		action: UserActions) {
+
+	switch (action.type) {
+		case UserActionTypes.CreateUser: {
+			return action.payload;
+		}
+		case UserActionTypes.DeleteUser: {
+			return initialState;
+		}
+		default: {
+			return state;
+		}
+	}
+}
+</code></pre>
+	
+			</section>
+			<section>
+				<h3>Reducers - ToDo</h3>
+					<ul>
+					<li>Entity adapters
+						<ul>
+							<li>
+								Designed by NgRx
+							</li>
+							<li>
+								Supports all CRUD operations
+							</li>
+							<li>
+								Out of the box and easy to use
+							</li>
+							<li>
+								<a href="https://ngrx.io/guide/entity/adapter" target="_blank">Read more</a>
+							</li>
+					</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Set up State/Reducer map</h3>
+
+<pre class="fragment"><code class="typescript hljs">
+export const reducers: ActionReducerMap&lt;TodoState&gt; = {
+		todos: todos.reducer,
+		currentFilter: currentFilter,
+		currentUser: userReducer,
+		mouseClicks: mouseReducer
+};
+</code></pre>
+			</section>
+
+			<section>
+				<h3>Set up modules to use store</h3>
+
+<pre class="fragment"><code class="typescript hljs">
+imports: [
+	StoreModule.forRoot(reducers),
+	!environment.production ? StoreDevtoolsModule.instrument() : [],
+	]
+</code></pre>
+
+			<aside class="notes">
+				In our module's import definition we must point into our ActionReduerMap. An added bonus, as described here, is that we can timetravel debugging
+				when the environment is not set to production. A clever way to conditionally include imports depending on the selected environment!
+			</aside>
+
+			</section>
+
+
+			<section>
+				<h4>Demo time! 😇</h4>
+
+				<ul>
+					<li>How to subscribe to state changes</li>
+					<li>General layout of the application</li>
+					<li>Issuing actions</li>
+					<li>Cross-component communication</li>
+					<li>Time travel debugging</li>
+				</ul>
+			</section>
+
+			</section>
+
+			<section>
+				<h1>Q&A</h1>
+			</section>
+
+			<section>
+				<h5>Slides available <a href="https://github.com/karolswdev/bct-ngconf-slides">here</a></h5>
+				<h5>https://github.com/karolswdev/bct-ngconf-slides</h5>
+
+				<h5>App available here <a href="https://github.com/karolswdev/bct-ngrx-demo-repo">here</a></h5>
+				<h5>https://github.com/karolswdev/bct-ngrx-demo-repo</h5>
+			</section>
+
+			<section>
+				<h1>Thank you ❤</h1>
+			</section>
+
 		</div>
 	
 	</div>
@@ -517,7 +660,6 @@ export type CurrentFilterActions = SetCurrentFilter;
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
-
 		</script>
 	
 	</body>
